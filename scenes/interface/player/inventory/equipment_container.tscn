@@ -1,0 +1,231 @@
+[gd_scene load_steps=12 format=3 uid="uid://b815l1slwws74"]
+
+[ext_resource type="Texture2D" uid="uid://dheflog1ilx3h" path="res://assets/interface/intentory/item_background/type_1.png" id="1_o8bdc"]
+[ext_resource type="Script" path="res://scripts/interface/player/equipment_container.gd" id="1_xfdqm"]
+[ext_resource type="FontFile" uid="uid://cbhsvxw7e6gt8" path="res://assets/font/bit_potion.ttf" id="2_h0bln"]
+[ext_resource type="Script" path="res://scripts/interface/player/consumable_background.gd" id="3_hv18x"]
+[ext_resource type="Script" path="res://scripts/interface/player/weapon_background.gd" id="5_x8tsw"]
+[ext_resource type="Script" path="res://scripts/interface/player/armor_background.gd" id="6_8q6ny"]
+
+[sub_resource type="FontVariation" id="FontVariation_i1ajv"]
+base_font = ExtResource("2_h0bln")
+
+[sub_resource type="Animation" id="Animation_lbk0q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1umcj"]
+resource_name = "hide_container"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_u87ui"]
+resource_name = "show_container"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8w23"]
+_data = {
+"RESET": SubResource("Animation_lbk0q"),
+"hide_container": SubResource("Animation_1umcj"),
+"show_container": SubResource("Animation_u87ui")
+}
+
+[node name="equipment_container" type="Control"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -49.0
+offset_right = 49.0
+offset_bottom = -5.0
+grow_vertical = 0
+script = ExtResource("1_xfdqm")
+
+[node name="consumable_background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -10.0
+offset_right = 20.0
+offset_bottom = 10.0
+grow_vertical = 2
+texture = ExtResource("1_o8bdc")
+stretch_mode = 2
+script = ExtResource("3_hv18x")
+
+[node name="item" type="TextureRect" parent="consumable_background"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="amount" type="Label" parent="consumable_background"]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -8.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = SubResource("FontVariation_i1ajv")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="v_container" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, 44)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -22.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="weapon_background" type="TextureRect" parent="v_container"]
+layout_mode = 2
+texture = ExtResource("1_o8bdc")
+stretch_mode = 2
+script = ExtResource("5_x8tsw")
+
+[node name="item" type="TextureRect" parent="v_container/weapon_background"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="armor_background" type="TextureRect" parent="v_container"]
+layout_mode = 2
+texture = ExtResource("1_o8bdc")
+stretch_mode = 2
+script = ExtResource("6_8q6ny")
+
+[node name="item" type="TextureRect" parent="v_container/armor_background"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s8w23")
+}
+
+[connection signal="mouse_entered" from="consumable_background" to="consumable_background" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="consumable_background" to="consumable_background" method="_on_mouse_exited"]

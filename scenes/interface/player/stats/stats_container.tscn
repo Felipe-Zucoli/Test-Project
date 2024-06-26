@@ -1,0 +1,807 @@
+[gd_scene load_steps=42 format=3 uid="uid://36g086awlygv"]
+
+[ext_resource type="Script" path="res://scripts/interface/player/stats_container.gd" id="1_035uk"]
+[ext_resource type="Texture2D" uid="uid://luxeg55hqlaw" path="res://assets/interface/stats/stats_info_container.png" id="1_gwox6"]
+[ext_resource type="Texture2D" uid="uid://bxqedhos5ibho" path="res://assets/interface/stats/text/stats_text/small/magic_attack.png" id="2_k1leh"]
+[ext_resource type="Script" path="res://scripts/interface/player/stats_info.gd" id="3_5hwl4"]
+[ext_resource type="Texture2D" uid="uid://do7kmbbsog2ue" path="res://assets/interface/stats/text/player_total.png" id="3_52j6y"]
+[ext_resource type="Texture2D" uid="uid://skglxrdogta8" path="res://assets/interface/stats/background/left_stats_background.png" id="3_jr6uo"]
+[ext_resource type="Texture2D" uid="uid://dhe3dra8ihqy6" path="res://assets/interface/stats/points_info_container.png" id="4_aewj7"]
+[ext_resource type="Texture2D" uid="uid://btqtbog0123ma" path="res://assets/interface/stats/icon/health_icon.png" id="4_qilim"]
+[ext_resource type="Texture2D" uid="uid://qowbfso4nny4" path="res://assets/interface/stats/text/avaliable_points.png" id="5_gpnd3"]
+[ext_resource type="FontFile" uid="uid://ssm58b7wnkxk" path="res://assets/font/thaleah_fat.ttf" id="5_qwij6"]
+[ext_resource type="Texture2D" uid="uid://c1telywvnj0qg" path="res://assets/interface/stats/icon/mana_icon.png" id="6_r6vpm"]
+[ext_resource type="Texture2D" uid="uid://bi2bmovyay6sr" path="res://assets/interface/stats/icon/attack_icon.png" id="7_cjbq5"]
+[ext_resource type="Texture2D" uid="uid://dq4lx1cehytjp" path="res://assets/interface/stats/text/knight_class_text.png" id="7_enmid"]
+[ext_resource type="Script" path="res://scripts/interface/player/points_info.gd" id="7_yq8ev"]
+[ext_resource type="Texture2D" uid="uid://b7b6bpewvj5a1" path="res://assets/interface/stats/icon/magic_attack_icon.png" id="8_7xemm"]
+[ext_resource type="Texture2D" uid="uid://db3f3gyt8tbag" path="res://assets/interface/stats/icon/shield_icon.png" id="9_1x44l"]
+[ext_resource type="Texture2D" uid="uid://blad68wr3n85h" path="res://assets/interface/stats/background/right_stats_background.png" id="10_8ru5w"]
+[ext_resource type="Script" path="res://scripts/interface/player/left_container.gd" id="10_px1fc"]
+[ext_resource type="Texture2D" uid="uid://daf3p1tuacnp7" path="res://assets/interface/stats/text/stats_text/big/health.png" id="11_aayjv"]
+[ext_resource type="Texture2D" uid="uid://cwb0xd5xua60e" path="res://assets/interface/stats/icon/increase_stats_icon.png" id="12_uuxa1"]
+[ext_resource type="Texture2D" uid="uid://c2co47jnfghta" path="res://assets/interface/stats/text/stats_text/big/mana.png" id="13_t027r"]
+[ext_resource type="Texture2D" uid="uid://btbp1cspci8kf" path="res://assets/interface/stats/text/stats_text/big/attack.png" id="14_w6dfk"]
+[ext_resource type="Texture2D" uid="uid://kba7fde2o6xc" path="res://assets/interface/stats/text/stats_text/big/magic_attack.png" id="15_77t2k"]
+[ext_resource type="Texture2D" uid="uid://cjt6trghg4i6d" path="res://assets/interface/stats/text/stats_text/big/defense.png" id="16_mksiv"]
+[ext_resource type="Texture2D" uid="uid://bbri1vakutmn7" path="res://assets/interface/stats/background/stats_text_background.png" id="17_26w2i"]
+[ext_resource type="Texture2D" uid="uid://bbkd46cultquf" path="res://assets/interface/stats/text/stats_text.png" id="18_1wjtf"]
+[ext_resource type="Script" path="res://scripts/interface/player/right_container.gd" id="18_2hw65"]
+
+[sub_resource type="Animation" id="Animation_as57t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6tmuj"]
+resource_name = "hide_container"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, 90), Vector2(7, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nftbk"]
+resource_name = "show_container"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(7, 90), Vector2(100, 90)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_31t3w"]
+_data = {
+"RESET": SubResource("Animation_as57t"),
+"hide_container": SubResource("Animation_6tmuj"),
+"show_container": SubResource("Animation_nftbk")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_46vhw"]
+base_font = ExtResource("5_qwij6")
+
+[sub_resource type="Animation" id="Animation_84rk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(218, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_udttg"]
+resource_name = "hide_container"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(108, 42), Vector2(218, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d8pi7"]
+resource_name = "show_container"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(218, 42), Vector2(108, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mip5"]
+_data = {
+"RESET": SubResource("Animation_84rk2"),
+"hide_container": SubResource("Animation_udttg"),
+"show_container": SubResource("Animation_d8pi7")
+}
+
+[sub_resource type="FontVariation" id="FontVariation_bxirg"]
+base_font = ExtResource("5_qwij6")
+
+[sub_resource type="Animation" id="Animation_y5xvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_imxci"]
+resource_name = "hide_container"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_imlrx"]
+resource_name = "show_container"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avj0f"]
+_data = {
+"RESET": SubResource("Animation_y5xvj"),
+"hide_container": SubResource("Animation_imxci"),
+"show_container": SubResource("Animation_imlrx")
+}
+
+[node name="stats_container" type="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_035uk")
+
+[node name="stats_info" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = 90.0
+offset_right = 87.0
+offset_bottom = 170.0
+grow_vertical = 2
+texture = ExtResource("1_gwox6")
+script = ExtResource("3_5hwl4")
+
+[node name="target_stats" type="TextureRect" parent="stats_info"]
+custom_minimum_size = Vector2(45, 6)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.5
+offset_top = 8.0
+offset_right = 22.5
+offset_bottom = 14.0
+grow_horizontal = 2
+texture = ExtResource("2_k1leh")
+stretch_mode = 3
+
+[node name="player_total" type="TextureRect" parent="stats_info"]
+custom_minimum_size = Vector2(45, 6)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 35.0
+offset_right = 37.0
+offset_bottom = 41.0
+grow_horizontal = 2
+texture = ExtResource("3_52j6y")
+stretch_mode = 3
+
+[node name="stats" type="TextureRect" parent="stats_info"]
+custom_minimum_size = Vector2(45, 6)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = 44.0
+offset_right = 23.0
+offset_bottom = 50.0
+grow_horizontal = 2
+texture = ExtResource("2_k1leh")
+stretch_mode = 3
+
+[node name="animation" type="AnimationPlayer" parent="stats_info"]
+libraries = {
+"": SubResource("AnimationLibrary_31t3w")
+}
+
+[node name="points_info" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 218.0
+offset_top = 42.0
+offset_right = 298.0
+offset_bottom = 122.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_aewj7")
+script = ExtResource("7_yq8ev")
+
+[node name="text" type="TextureRect" parent="points_info"]
+custom_minimum_size = Vector2(55, 13)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 8.0
+offset_right = 25.0
+offset_bottom = 21.0
+grow_horizontal = 2
+texture = ExtResource("5_gpnd3")
+stretch_mode = 3
+
+[node name="avaliable_points" type="Label" parent="points_info"]
+custom_minimum_size = Vector2(80, 14)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -7.0
+offset_right = 38.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_46vhw")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="class" type="TextureRect" parent="points_info"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -12.0
+offset_right = 16.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_enmid")
+stretch_mode = 2
+
+[node name="animation" type="AnimationPlayer" parent="points_info"]
+libraries = {
+"": SubResource("AnimationLibrary_5mip5")
+}
+
+[node name="left_container" type="TextureRect" parent="." node_paths=PackedStringArray("stats_info")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -138.0
+offset_right = 106.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = ExtResource("3_jr6uo")
+script = ExtResource("10_px1fc")
+stats_info = NodePath("../stats_info")
+
+[node name="GridContainer" type="GridContainer" parent="left_container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -48.0
+offset_right = 45.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_container" type="HBoxContainer" parent="left_container/GridContainer"]
+custom_minimum_size = Vector2(77, 16)
+layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="left_container/GridContainer/health_container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("4_qilim")
+
+[node name="text" type="Label" parent="left_container/GridContainer/health_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 +"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="bonus" type="Label" parent="left_container/GridContainer/health_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 
+"
+vertical_alignment = 1
+
+[node name="mana_container" type="HBoxContainer" parent="left_container/GridContainer"]
+custom_minimum_size = Vector2(77, 16)
+layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="left_container/GridContainer/mana_container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("6_r6vpm")
+
+[node name="text" type="Label" parent="left_container/GridContainer/mana_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 +"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="bonus" type="Label" parent="left_container/GridContainer/mana_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 
+"
+vertical_alignment = 1
+
+[node name="attack_container" type="HBoxContainer" parent="left_container/GridContainer"]
+custom_minimum_size = Vector2(77, 16)
+layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="left_container/GridContainer/attack_container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("7_cjbq5")
+
+[node name="text" type="Label" parent="left_container/GridContainer/attack_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 +"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="bonus" type="Label" parent="left_container/GridContainer/attack_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 
+"
+vertical_alignment = 1
+
+[node name="magic_attack_container" type="HBoxContainer" parent="left_container/GridContainer"]
+custom_minimum_size = Vector2(77, 16)
+layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="left_container/GridContainer/magic_attack_container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("8_7xemm")
+
+[node name="text" type="Label" parent="left_container/GridContainer/magic_attack_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 +"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="bonus" type="Label" parent="left_container/GridContainer/magic_attack_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 
+"
+vertical_alignment = 1
+
+[node name="defense_container" type="HBoxContainer" parent="left_container/GridContainer"]
+custom_minimum_size = Vector2(77, 16)
+layout_mode = 2
+
+[node name="texture" type="TextureRect" parent="left_container/GridContainer/defense_container"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("9_1x44l")
+
+[node name="text" type="Label" parent="left_container/GridContainer/defense_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 +"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="bonus" type="Label" parent="left_container/GridContainer/defense_container"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bxirg")
+text = "100 
+"
+vertical_alignment = 1
+
+[node name="right_container" type="TextureRect" parent="." node_paths=PackedStringArray("points_info")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -138.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("10_8ru5w")
+script = ExtResource("18_2hw65")
+points_info = NodePath("../points_info")
+
+[node name="v_container" type="VBoxContainer" parent="right_container"]
+custom_minimum_size = Vector2(103, 96)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -48.0
+offset_right = 51.5
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_container" type="HBoxContainer" parent="right_container/v_container"]
+layout_mode = 2
+
+[node name="v_container" type="VBoxContainer" parent="right_container/v_container/health_container"]
+custom_minimum_size = Vector2(83, 16)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="margin" type="Control" parent="right_container/v_container/health_container/v_container"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="right_container/v_container/health_container/v_container"]
+layout_mode = 2
+texture = ExtResource("11_aayjv")
+stretch_mode = 2
+
+[node name="plus" type="TextureButton" parent="right_container/v_container/health_container"]
+layout_mode = 2
+texture_normal = ExtResource("12_uuxa1")
+
+[node name="mana_container" type="HBoxContainer" parent="right_container/v_container"]
+layout_mode = 2
+
+[node name="v_container" type="VBoxContainer" parent="right_container/v_container/mana_container"]
+custom_minimum_size = Vector2(83, 16)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="margin" type="Control" parent="right_container/v_container/mana_container/v_container"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="right_container/v_container/mana_container/v_container"]
+layout_mode = 2
+texture = ExtResource("13_t027r")
+stretch_mode = 2
+
+[node name="plus" type="TextureButton" parent="right_container/v_container/mana_container"]
+layout_mode = 2
+texture_normal = ExtResource("12_uuxa1")
+
+[node name="attack_container" type="HBoxContainer" parent="right_container/v_container"]
+layout_mode = 2
+
+[node name="v_container" type="VBoxContainer" parent="right_container/v_container/attack_container"]
+custom_minimum_size = Vector2(83, 16)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="margin" type="Control" parent="right_container/v_container/attack_container/v_container"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="right_container/v_container/attack_container/v_container"]
+layout_mode = 2
+texture = ExtResource("14_w6dfk")
+stretch_mode = 2
+
+[node name="plus" type="TextureButton" parent="right_container/v_container/attack_container"]
+layout_mode = 2
+texture_normal = ExtResource("12_uuxa1")
+
+[node name="magic_attack_container" type="HBoxContainer" parent="right_container/v_container"]
+layout_mode = 2
+
+[node name="v_container" type="VBoxContainer" parent="right_container/v_container/magic_attack_container"]
+custom_minimum_size = Vector2(83, 16)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="margin" type="Control" parent="right_container/v_container/magic_attack_container/v_container"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="right_container/v_container/magic_attack_container/v_container"]
+layout_mode = 2
+texture = ExtResource("15_77t2k")
+stretch_mode = 2
+
+[node name="plus" type="TextureButton" parent="right_container/v_container/magic_attack_container"]
+layout_mode = 2
+texture_normal = ExtResource("12_uuxa1")
+
+[node name="defense_container" type="HBoxContainer" parent="right_container/v_container"]
+layout_mode = 2
+
+[node name="v_container" type="VBoxContainer" parent="right_container/v_container/defense_container"]
+custom_minimum_size = Vector2(83, 16)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="margin" type="Control" parent="right_container/v_container/defense_container/v_container"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="right_container/v_container/defense_container/v_container"]
+layout_mode = 2
+texture = ExtResource("16_mksiv")
+stretch_mode = 2
+
+[node name="plus" type="TextureButton" parent="right_container/v_container/defense_container"]
+layout_mode = 2
+texture_normal = ExtResource("12_uuxa1")
+
+[node name="text_background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_top = 3.0
+offset_right = 33.0
+offset_bottom = 20.0
+grow_horizontal = 2
+texture = ExtResource("17_26w2i")
+
+[node name="text" type="TextureRect" parent="text_background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -0.5
+offset_right = 15.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_1wjtf")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_avj0f")
+}

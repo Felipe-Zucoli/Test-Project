@@ -1,0 +1,264 @@
+[gd_scene load_steps=10 format=3 uid="uid://j1wtd30xurrg"]
+
+[ext_resource type="Script" path="res://scripts/interface/initial_screen.gd" id="1_nnher"]
+[ext_resource type="PackedScene" uid="uid://b1fxdh1wa54vt" path="res://scenes/env/background.tscn" id="1_x6jlu"]
+[ext_resource type="FontFile" uid="uid://ssm58b7wnkxk" path="res://assets/font/thaleah_fat.ttf" id="2_6wemj"]
+[ext_resource type="Texture2D" uid="uid://qlg6b8pgjd05" path="res://assets/player/char_blue.png" id="4_o3pm4"]
+[ext_resource type="Texture2D" uid="uid://q0gcf4buq18i" path="res://assets/player/char_green.png" id="5_rclpk"]
+[ext_resource type="Texture2D" uid="uid://c8y8cr2bn8nsm" path="res://assets/player/char_purple.png" id="6_2mpei"]
+[ext_resource type="Texture2D" uid="uid://5a4dv0qdtdul" path="res://assets/player/char_red.png" id="7_b4vum"]
+
+[sub_resource type="FontVariation" id="FontVariation_bnbwy"]
+base_font = ExtResource("2_6wemj")
+
+[sub_resource type="FontVariation" id="FontVariation_syii5"]
+base_font = ExtResource("2_6wemj")
+
+[node name="initial_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nnher")
+
+[node name="background" parent="." instance=ExtResource("1_x6jlu")]
+can_process = true
+
+[node name="menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game_name" type="Label" parent="menu"]
+layout_mode = 0
+offset_right = 188.0
+offset_bottom = 50.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("FontVariation_bnbwy")
+theme_override_font_sizes/font_size = 32
+text = "Dawn Forest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_container" type="VBoxContainer" parent="menu"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -68.0
+offset_right = -20.0
+offset_bottom = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="play" type="Button" parent="menu/button_container" groups=["button"]]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+flat = true
+
+[node name="label" type="Label" parent="menu/button_container/play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("FontVariation_syii5")
+theme_override_font_sizes/font_size = 16
+text = "Play
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="continue" type="Button" parent="menu/button_container" groups=["button"]]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+disabled = true
+flat = true
+
+[node name="label" type="Label" parent="menu/button_container/continue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("FontVariation_syii5")
+theme_override_font_sizes/font_size = 16
+text = "Continue
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="quit" type="Button" parent="menu/button_container" groups=["button"]]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+flat = true
+
+[node name="label" type="Label" parent="menu/button_container/quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("FontVariation_syii5")
+theme_override_font_sizes/font_size = 16
+text = "Quit
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="skin_select" type="Control" parent="."]
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_button" type="Button" parent="skin_select" groups=["button"]]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 12.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+flat = true
+
+[node name="label" type="Label" parent="skin_select/back_button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = SubResource("FontVariation_syii5")
+theme_override_font_sizes/font_size = 16
+text = "back
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="placeholder_text" type="Label" parent="skin_select"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = -58.0
+offset_right = 208.0
+offset_bottom = -8.0
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = SubResource("FontVariation_bnbwy")
+theme_override_font_sizes/font_size = 24
+text = "please, select a skin"
+vertical_alignment = 1
+
+[node name="skin_container" type="HBoxContainer" parent="skin_select"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -100.0
+offset_right = 114.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="blue" type="Button" parent="skin_select/skin_container" groups=["button"]]
+custom_minimum_size = Vector2(54, 80)
+layout_mode = 2
+
+[node name="blue" type="TextureRect" parent="skin_select/skin_container/blue"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_o3pm4")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="green" type="Button" parent="skin_select/skin_container" groups=["button"]]
+custom_minimum_size = Vector2(54, 80)
+layout_mode = 2
+
+[node name="green" type="TextureRect" parent="skin_select/skin_container/green"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rclpk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="purple" type="Button" parent="skin_select/skin_container" groups=["button"]]
+custom_minimum_size = Vector2(54, 80)
+layout_mode = 2
+
+[node name="purple" type="TextureRect" parent="skin_select/skin_container/purple"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_2mpei")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="red" type="Button" parent="skin_select/skin_container" groups=["button"]]
+custom_minimum_size = Vector2(54, 80)
+layout_mode = 2
+
+[node name="red" type="TextureRect" parent="skin_select/skin_container/red"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_b4vum")
+expand_mode = 1
+stretch_mode = 1

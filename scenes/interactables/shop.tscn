@@ -1,0 +1,183 @@
+[gd_scene load_steps=16 format=3 uid="uid://bcq0ak865rspc"]
+
+[ext_resource type="Texture2D" uid="uid://celhb7qeaxpfi" path="res://assets/interactable/miscellaneous/shop.png" id="1_831h0"]
+[ext_resource type="Script" path="res://scripts/interactable/shop.gd" id="1_p7o84"]
+[ext_resource type="Texture2D" uid="uid://d0rkdekd6t83v" path="res://assets/interface/dialog/interactable_icon.png" id="3_dhl1x"]
+[ext_resource type="PackedScene" uid="uid://b5r8ldi0agld0" path="res://scenes/env/light.tscn" id="4_458jt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnjkv"]
+size = Vector2(49, 30)
+
+[sub_resource type="Animation" id="Animation_aivqp"]
+resource_name = "idle"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ui7fx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l61cw"]
+_data = {
+"RESET": SubResource("Animation_ui7fx"),
+"idle": SubResource("Animation_aivqp")
+}
+
+[sub_resource type="Animation" id="Animation_kcobt"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_133ky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rwigm"]
+_data = {
+"RESET": SubResource("Animation_133ky"),
+"idle": SubResource("Animation_kcobt")
+}
+
+[sub_resource type="Animation" id="Animation_0pghs"]
+resource_name = "fade_in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_42o2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kvcbf"]
+resource_name = "fade_out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v2eg8"]
+_data = {
+"RESET": SubResource("Animation_42o2h"),
+"fade_in": SubResource("Animation_0pghs"),
+"fade_out": SubResource("Animation_kvcbf")
+}
+
+[node name="shop" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_p7o84")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_831h0")
+hframes = 6
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 49)
+shape = SubResource("RectangleShape2D_tnjkv")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l61cw")
+}
+autoplay = "idle"
+
+[node name="dialog_icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(12, 24)
+texture = ExtResource("3_dhl1x")
+hframes = 4
+
+[node name="animation" type="AnimationPlayer" parent="dialog_icon"]
+libraries = {
+"": SubResource("AnimationLibrary_rwigm")
+}
+
+[node name="aux_animation" type="AnimationPlayer" parent="dialog_icon"]
+libraries = {
+"": SubResource("AnimationLibrary_v2eg8")
+}
+
+[node name="Light" parent="." instance=ExtResource("4_458jt")]
+position = Vector2(-48, 35)
+
+[node name="Light2" parent="." instance=ExtResource("4_458jt")]
+position = Vector2(49, 35)
+
+[connection signal="body_entered" from="." to="." method="on_shop_body_entered"]
+[connection signal="body_exited" from="." to="." method="on_shop_body_exited"]

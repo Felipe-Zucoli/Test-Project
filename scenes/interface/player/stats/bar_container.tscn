@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://djss7bs084glv"]
+
+[ext_resource type="Texture2D" uid="uid://b4ts5qqxgjwmk" path="res://assets/interface/stats/bar/health_bar_background.png" id="1_71r5v"]
+[ext_resource type="Script" path="res://scripts/interface/player/bar_container.gd" id="1_xqt1n"]
+[ext_resource type="Texture2D" uid="uid://byfxtnahaj80l" path="res://assets/interface/stats/bar/health_bar.png" id="2_ssk0d"]
+[ext_resource type="Texture2D" uid="uid://b5m2r2v37amq2" path="res://assets/interface/stats/bar/mana_bar_background.png" id="3_aycg4"]
+[ext_resource type="Texture2D" uid="uid://bysi73noo8lr8" path="res://assets/interface/stats/bar/mana_bar.png" id="4_4iwmq"]
+[ext_resource type="Texture2D" uid="uid://b57848hw75bje" path="res://assets/interface/stats/bar/exp_bar_background.png" id="4_d7j2x"]
+[ext_resource type="Texture2D" uid="uid://buo6hxk7lijld" path="res://assets/interface/stats/bar/exp_bar.png" id="6_hhi8w"]
+
+[node name="bar_container" type="Control" node_paths=PackedStringArray("health_bar", "mana_bar", "exp_bar") groups=["bar_container"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xqt1n")
+health_bar = NodePath("health_bar_background/health_bar")
+mana_bar = NodePath("mana_bar_background/mana_bar")
+exp_bar = NodePath("exp_bar_background/exp_bar")
+
+[node name="health_bar_background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 22.0
+texture = ExtResource("1_71r5v")
+stretch_mode = 2
+
+[node name="health_bar" type="TextureProgressBar" parent="health_bar_background"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 7.0
+offset_right = 60.0
+offset_bottom = 9.0
+value = 100.0
+texture_progress = ExtResource("2_ssk0d")
+
+[node name="mana_bar_background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 69.0
+offset_bottom = 37.0
+texture = ExtResource("3_aycg4")
+stretch_mode = 2
+
+[node name="mana_bar" type="TextureProgressBar" parent="mana_bar_background"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 47.0
+offset_bottom = 8.0
+value = 100.0
+texture_progress = ExtResource("4_4iwmq")
+
+[node name="exp_bar_background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 5.0
+offset_right = 314.0
+offset_bottom = 22.0
+texture = ExtResource("4_d7j2x")
+stretch_mode = 2
+
+[node name="exp_bar" type="TextureProgressBar" parent="exp_bar_background"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 47.0
+offset_bottom = 9.0
+value = 100.0
+fill_mode = 1
+texture_progress = ExtResource("6_hhi8w")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxg38fi6o7au1"]
+
+[ext_resource type="Script" path="res://scripts/interface/hud.gd" id="1_4v5id"]
+[ext_resource type="PackedScene" uid="uid://djss7bs084glv" path="res://scenes/interface/player/stats/bar_container.tscn" id="1_kjhb0"]
+[ext_resource type="PackedScene" uid="uid://fkkq7icroxde" path="res://scenes/interface/player/inventory/inventory_container.tscn" id="3_hky8f"]
+[ext_resource type="PackedScene" uid="uid://b815l1slwws74" path="res://scenes/interface/player/inventory/equipment_container.tscn" id="4_2k32y"]
+[ext_resource type="PackedScene" uid="uid://36g086awlygv" path="res://scenes/interface/player/stats/stats_container.tscn" id="5_e8xml"]
+
+[node name="hud" type="CanvasLayer"]
+script = ExtResource("1_4v5id")
+
+[node name="inventory_container" parent="." instance=ExtResource("3_hky8f")]
+
+[node name="stats_container" parent="." groups=["stats_hud"] instance=ExtResource("5_e8xml")]
+
+[node name="bar_container" parent="." instance=ExtResource("1_kjhb0")]
+
+[node name="equipment_container" parent="." groups=["equipment_container"] instance=ExtResource("4_2k32y")]

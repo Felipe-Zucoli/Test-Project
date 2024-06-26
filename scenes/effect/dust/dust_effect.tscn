@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bndtu6i52bvkg"]
+
+[ext_resource type="PackedScene" uid="uid://fhot5yndf5kt" path="res://scenes/effect/effect_template.tscn" id="1_fpd6b"]
+[ext_resource type="Texture2D" uid="uid://6hqfipjb4ta3" path="res://assets/effect/dust/dust_particles.png" id="2_qjpl3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm1pc"]
+atlas = ExtResource("2_qjpl3")
+region = Rect2(0, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nex4e"]
+atlas = ExtResource("2_qjpl3")
+region = Rect2(52, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eluqn"]
+atlas = ExtResource("2_qjpl3")
+region = Rect2(104, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxqj3"]
+atlas = ExtResource("2_qjpl3")
+region = Rect2(156, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7w1f"]
+atlas = ExtResource("2_qjpl3")
+region = Rect2(208, 0, 52, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4cs86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm1pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nex4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eluqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxqj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7w1f")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="dust_effect" instance=ExtResource("1_fpd6b")]
+sprite_frames = SubResource("SpriteFrames_4cs86")
+animation = &"idle"
+frame = 4
+frame_progress = 1.0

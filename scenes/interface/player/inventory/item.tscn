@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://uivwpih20vod"]
+
+[ext_resource type="Texture2D" uid="uid://dheflog1ilx3h" path="res://assets/interface/intentory/item_background/type_1.png" id="1_800ri"]
+[ext_resource type="Script" path="res://scripts/interface/player/item.gd" id="2_tedgg"]
+[ext_resource type="FontFile" uid="uid://cbhsvxw7e6gt8" path="res://assets/font/bit_potion.ttf" id="3_fi7ph"]
+
+[sub_resource type="FontVariation" id="FontVariation_a2q0x"]
+base_font = ExtResource("3_fi7ph")
+
+[node name="item" type="TextureRect"]
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("1_800ri")
+script = ExtResource("2_tedgg")
+
+[node name="item_texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="amount" type="Label" parent="."]
+custom_minimum_size = Vector2(4, 7)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -8.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = SubResource("FontVariation_a2q0x")
+theme_override_font_sizes/font_size = 8
+text = "
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

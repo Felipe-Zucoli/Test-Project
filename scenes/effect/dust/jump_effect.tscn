@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0w4uknwdn385"]
+
+[ext_resource type="PackedScene" uid="uid://fhot5yndf5kt" path="res://scenes/effect/effect_template.tscn" id="1_nyahn"]
+[ext_resource type="Texture2D" uid="uid://eywigukj2isg" path="res://assets/effect/dust/jump_particles.png" id="2_ct1v0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mph6t"]
+atlas = ExtResource("2_ct1v0")
+region = Rect2(0, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xjaq"]
+atlas = ExtResource("2_ct1v0")
+region = Rect2(52, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccw5y"]
+atlas = ExtResource("2_ct1v0")
+region = Rect2(104, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogqvs"]
+atlas = ExtResource("2_ct1v0")
+region = Rect2(156, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy3le"]
+atlas = ExtResource("2_ct1v0")
+region = Rect2(208, 0, 52, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dij5"]
+atlas = ExtResource("2_ct1v0")
+region = Rect2(260, 0, 52, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rry6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mph6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xjaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccw5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogqvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy3le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dij5")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="effect_template" instance=ExtResource("1_nyahn")]
+sprite_frames = SubResource("SpriteFrames_4rry6")
+animation = &"idle"
